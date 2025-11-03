@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Life - Transform Your Mind, Body & Spirit</title>
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --success: #48BB78;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            opacity: 0.9;
+        }
+        
+        /* Opt-in Form */
+        .optin-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #E2E8F0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-primary {
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 18px;
+        }
+        
+        /* Pillars Section */
+        .pillars {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pillar-card {
+            background: var(--light);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #E2E8F0;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stars {
+            color: #FFD700;
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+        
+        /* Products */
+        .products {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 1px solid #E2E8F0;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .product-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .product-content {
+            padding: 2rem;
+        }
+        
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .product-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        
+        .product-features li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .paypal-button {
+            background: #FFC439;
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .paypal-button:hover {
+            background: #F2BA36;
+            transform: translateY(-2px);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .download-section {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--success), #38A169);
+            color: white;
+        }
+        
+        .download-btn {
+            background: white;
+            color: var(--success);
+            padding: 18px 50px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 1rem 0;
+            transition: all 0.3s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .bestseller-badge {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">ElevateLife</div>
+            <nav>
+                <a href="#pillars">The Journey</a>
+                <a href="#testimonials">Success Stories</a>
+                <a href="#products">Resources</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Elevate Your Entire Being</h1>
+            <p>Join thousands who have transformed their mind, body, and spirit with our proven self-improvement system</p>
+            
+            <div class="optin-form">
+                <h3 style="color: var(--dark); margin-bottom: 1.5rem;">Get Your Free Mind-Body Starter Kit</h3>
+                <form id="lead-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Get Free Access Now!</button>
+                </form>
+                <p style="font-size: 0.9rem; margin-top: 1rem; color: #666;">Join our community of growth-minded individuals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Pillars Section -->
+    <section class="pillars" id="pillars">
+        <div class="container">
+            <h2 class="section-title">The Three Pillars of Transformation</h2>
+            <p class="section-subtitle">True growth happens when you develop all aspects of your being in harmony</p>
+            
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">🧠</div>
+                    <h3>Mind Mastery</h3>
+                    <p>Develop unshakable focus, eliminate limiting beliefs, and cultivate a growth mindset that propels you toward your goals.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="pillar-icon">💪</div>
+                    <h3>Body Vitality</h3>
+                    <p>Optimize your physical health with sustainable nutrition, movement practices, and recovery strategies for boundless energy.</p>
+                </div>
+                
+                <div class="pillar-card">
+                    <div class="pillar-icon">✨</div>
+                    <h3>Spirit Alignment</h3>
+                    <p>Connect with your purpose, develop emotional intelligence, and create lasting inner peace and fulfillment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem; font-size: 2.5rem;">Transformations That Inspire</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem; opacity: 0.9;">Real people, real results</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The Mind-Body Connection course completely changed how I approach my health. I've lost 25 pounds and finally have the mental clarity I've been seeking for years."</p>
+                    <div class="customer-name">- Michael R., 42</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"I was stuck in a career rut and feeling burnt out. The productivity system gave me back 10+ hours per week and the confidence to pursue my passion projects."</p>
+                    <div class="customer-name">- Sarah L., 31</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The meditation guides and mindfulness practices helped me overcome anxiety I've had since college. I feel like I'm finally living instead of just surviving."</p>
+                    <div class="customer-name">- Jessica M., 28</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Your Transformation Toolkit</h2>
+            <p class="section-subtitle">Choose the path that resonates with your current growth journey</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3>Mind-Body Connection</h3>
+                        <p>Complete System</p>
+                    </div>
+                    <div class="product-content">
+                        <div class="price">$197</div>
+                        <ul class="product-features">
+                            <li>12-Week Transformation Blueprint</li>
+                            <li>Daily Meditation & Mindfulness Guides</li>
+                            <li>Nutrition & Meal Planning System</li>
+                            <li>Movement & Exercise Protocols</li>
+                            <li>Mindset Mastery Training</li>
+                            <li>Private Community Access</li>
+                        </ul>
+                        <button class="btn" onclick="showCheckout('mind-body-system', 197)">Begin Transformation</button>
+                        <div class="bestseller-badge">MOST POPULAR</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3>Productivity Mastery</h3>
+                        <p>Focus & Efficiency</p>
+                    </div>
+                    <div class="product-content">
+                        <div class="price">$97</div>
+                        <ul class="product-features">
+                            <li>Time Blocking System</li>
+                            <li>Digital Planning Templates</li>
+                            <li>Focus Enhancement Techniques</li>
+                            <li>Goal Setting Framework</li>
+                            <li>Email & Communication Management</li>
+                            <li>Weekly Review System</li>
+                        </ul>
+                        <button class="btn" onclick="showCheckout('productivity-mastery', 97)">Boost Productivity</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3>Holistic Nutrition</h3>
+                        <p>Gut Health & Energy</p>
+                    </div>
+                    <div class="product-content">
+                        <div class="price">$147</div>
+                        <ul class="product-features">
+                            <li>4-Week Meal Plans</li>
+                            <li>100+ Recipe Collection</li>
+                            <li>Gut Health Protocol</li>
+                            <li>Meal Prep Strategies</li>
+                            <li>Supplement Guide</li>
+                            <li>Eating Psychology Training</li>
+                        </ul>
+                        <button class="btn" onclick="showCheckout('holistic-nutrition', 147)">Optimize Health</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="margin-bottom: 1rem; -webkit-text-fill-color: white;">ElevateLife</div>
+            <p>Your journey to becoming the best version of yourself starts here.</p>
+            <p style="margin-top: 2rem; opacity: 0.7;"><small>© 2024 ElevateLife. All rights reserved. | Disclaimer: Results may vary based on individual commitment and application.</small></p>
+        </div>
+    </footer>
+
+    <!-- Upsell Modal -->
+    <div class="modal" id="upsellModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeUpsell()">&times;</span>
+            <h2 style="color: var(--dark); margin-bottom: 1rem;">Ready to Accelerate Your Growth?</h2>
+            <p>Since you're committed to self-improvement, we'd like to offer you a special discount on our complete Mind-Body Connection System.</p>
+            <div class="price" style="font-size: 2.5rem;">$147 (Save $50)</div>
+            <button class="btn" onclick="showCheckout('mind-body-discount', 147)" style="margin: 1.5rem 0;">Yes, I Want This Special Offer!</button>
+            <p><small><a href="#" onclick="closeUpsell(); showDownload()" style="color: #666;">No thanks, I'll just take the free starter kit</a></small></p>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCheckout()">&times;</span>
+            <h2 style="color: var(--dark); margin-bottom: 1rem;" id="checkout-title">Complete Your Purchase</h2>
+            <p id="checkout-description" style="margin-bottom: 1.5rem;"></p>
+            <div class="price" id="checkout-price" style="font-size: 2.5rem;"></div>
+            
+            <form id="checkout-form">
+                <div class="form-group">
+                    <input type="email" id="customer-email" placeholder="Your Email" required>
+                </div>
+                <button type="button" class="paypal-button" onclick="processPayment()">
+                    Complete Purchase with PayPal
+                </button>
+                <div id="payment-message" class="hidden"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Download Section -->
+    <section class="download-section hidden" id="downloadSection">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Your Free Starter Kit is Ready! 🎉</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Thank you for joining the ElevateLife community!</p>
+            <a href="#" class="download-btn" id="download-link" onclick="downloadFile()">Download Your Mind-Body Starter Kit (PDF)</a>
+            <p style="margin-top: 1rem; opacity: 0.9;"><em>The kit has also been sent to your email address</em></p>
+            
+            <div style="margin-top: 4rem; padding: 2.5rem; background: rgba(255,255,255,0.2); border-radius: 15px; backdrop-filter: blur(10px);">
+                <h3 style="margin-bottom: 1rem;">Ready for the Complete Transformation?</h3>
+                <p style="margin-bottom: 1.5rem;">Your free kit is just the beginning. The full Mind-Body Connection System takes you through a 12-week journey of radical transformation.</p>
+                <button class="btn" onclick="showCheckout('mind-body-system', 197)">Explore the Full System</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Products information
+        const products = {
+            'mind-body-system': {
+                name: 'Mind-Body Connection System',
+                description: '12-Week Complete Transformation Program',
+                price: 197,
+                file: 'mind-body-system.pdf'
+            },
+            'productivity-mastery': {
+                name: 'Productivity Mastery System',
+                description: 'Focus, Efficiency & Time Management',
+                price: 97,
+                file: 'productivity-mastery.pdf'
+            },
+            'holistic-nutrition': {
+                name: 'Holistic Nutrition Guide',
+                description: 'Gut Health, Energy & Meal Planning',
+                price: 147,
+                file: 'holistic-nutrition.pdf'
+            },
+            'mind-body-discount': {
+                name: 'Mind-Body Connection System (Special Offer)',
+                description: '12-Week Complete Transformation Program',
+                price: 147,
+                file: 'mind-body-system.pdf'
+            }
+        };
+
+        let currentProduct = null;
+
+        // Free lead magnet form
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Store user data
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userEmail', email);
+            
+            // Send to email service
+            sendToEmailService(name, email);
+            
+            // Show upsell modal
+            document.getElementById('upsellModal').style.display = 'flex';
+            
+            console.log('New lead:', { name, email });
+        });
+
+        function closeUpsell() {
+            document.getElementById('upsellModal').style.display = 'none';
+        }
+
+        function showDownload() {
+            // Show download section and hide hero
+            document.getElementById('downloadSection').classList.remove('hidden');
+            document.querySelector('.hero').style.display = 'none';
+            
+            // Scroll to download section
+            document.getElementById('downloadSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showCheckout(productId, price) {
+            currentProduct = productId;
+            const product = products[productId];
+            
+            document.getElementById('checkout-title').textContent = product.name;
+            document.getElementById('checkout-description').textContent = product.description;
+            document.getElementById('checkout-price').textContent = `$${price}`;
+            
+            // Pre-fill email if available
+            const savedEmail = localStorage.getItem('userEmail');
+            if (savedEmail) {
+                document.getElementById('customer-email').value = savedEmail;
+            }
+            
+            document.getElementById('checkoutModal').style.display = 'flex';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        // PayPal Payment Processing
+        function processPayment() {
+            const email = document.getElementById('customer-email').value;
+            const product = products[currentProduct];
+            
+            if (!email) {
+                alert('Please enter your email address');
+                return;
+            }
+            
+            // Show processing message
+            const paymentMessage = document.getElementById('payment-message');
+            paymentMessage.textContent = 'Redirecting to PayPal...';
+            paymentMessage.style.color = 'var(--primary)';
+            paymentMessage.classList.remove('hidden');
+            
+            // Simulate PayPal redirect
+            setTimeout(() => {
+                closeCheckout();
+                completePurchase(currentProduct, email);
+            }, 2000);
+        }
+
+        function completePurchase(productId, email) {
+            const product = products[productId];
+            
+            // Send purchase confirmation email
+            sendPurchaseEmail(email, product);
+            
+            // Show success message
+            alert(`Thank you for your investment in yourself! Your ${product.name} has been sent to ${email}. Check your inbox for download instructions.`);
+            
+            // Log the sale
+            console.log('Sale completed:', { 
+                product: product.name, 
+                email: email, 
+                amount: product.price,
+                date: new Date().toISOString()
+            });
+            
+            // Track conversion
+            trackConversion('purchase', product.price);
+        }
+
+        // Email Automation Functions
+        function sendToEmailService(name, email) {
+            // This would integrate with your email service
+            console.log(`Sending lead to email service: ${name} <${email}>`);
+            
+            // Send the free guide immediately
+            sendFreeGuideEmail(name, email);
+            
+            // Track conversion
+            trackConversion('lead', 0);
+        }
+
+        function sendFreeGuideEmail(name, email) {
+            // This would send the free PDF via your email service
+            console.log(`Sending free guide to ${name} at ${email}`);
+            
+            // Implementation:
+            // 1. Use SendGrid, Mailchimp, or ConvertKit
+            // 2. Set up automation to deliver the free guide
+            // 3. Start nurture sequence
+        }
+
+        function sendPurchaseEmail(email, product) {
+            // This would send the purchased product via your email service
+            console.log(`Sending ${product.name} to ${email}`);
+            
+            // Implementation:
+            // 1. Automatically email the digital product
+            // 2. Add to customer sequence
+            // 3. Send welcome email with download links
+        }
+
+        function downloadFile() {
+            // For the free lead magnet download
+            const link = document.createElement('a');
+            link.href = 'elevate-life-starter-kit.pdf'; // Your actual PDF file
+            link.download = 'ElevateLife-Starter-Kit.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Analytics and Tracking
+        function trackConversion(type, value) {
+            // Integrate with Google Analytics or Facebook Pixel
+            console.log('Conversion tracked: ', type, value);
+            
+            // Example Google Analytics event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-YOUR_CONVERSION_ID',
+                    'value': value,
+                    'currency': 'USD'
+                });
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
